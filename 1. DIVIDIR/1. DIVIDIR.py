@@ -41,13 +41,6 @@ fragmentos_final = []
 for f in fragmentos:
     if len(f) == partes:
         fragmentos_final.append(f)
-    else:
-        num = partes-len(f)
-        resultado = f
-        for x in range(num):
-            resultado = resultado+"X"
-        fragmentos_final.append(resultado)
-        break
 
 if desordenar:
     random.shuffle(fragmentos_final)
