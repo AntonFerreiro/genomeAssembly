@@ -1,0 +1,2 @@
+Coincidencia circular más larga: TTGTT
+100.00% | 5 de 5
