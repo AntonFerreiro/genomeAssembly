@@ -1,6 +1,7 @@
 import datetime
 import random
 import os
+from pathlib import Path
 
 desordenar = input("Desordenar? y/n: ")
 partes = int(input("Partes (bases por fragmento)? "))
@@ -11,9 +12,17 @@ else:
 
 hora = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-archivo_nombre = os.path.join(base_dir, "muestra.txt")
-resultado_nombre = os.path.join(base_dir, "resultados", f"dividido_{desordenar}_{hora}.txt")
+project_root = Path(__file__).resolve().parents[1]
+base_dir = Path(__file__).resolve().parent
+archivo_nombre = project_root/'Muestras'/'muestra.txt'
+
+resultado_nombre = (
+    project_root
+    / "Resultados"
+    / f"dividido.txt"
+)
+
+print(base_dir)
 
 try:
     with open(archivo_nombre, 'r', encoding='utf-8') as archivo:

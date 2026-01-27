@@ -2,13 +2,22 @@ import datetime
 import networkx as nx
 import matplotlib.pyplot as plt
 import os
+from pathlib import Path
+
 
 hora = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-archivo_nombre = os.path.join(base_dir, "dividido.txt")
-resultado_nombre = os.path.join(base_dir, f"resultados/ensamblado_{hora}.txt")
+base_dir = Path(__file__).resolve().parent
+project_root = Path(__file__).resolve().parents[1]
+archivo_nombre = project_root/'Resultados'/'dividido.txt'
 
+resultado_nombre = (
+    project_root
+    / "Resultados"
+    / f"ensamblado.txt"
+)
+
+print(base_dir)
 partes = int(input("Partes? "))
 # partes = 3
 
