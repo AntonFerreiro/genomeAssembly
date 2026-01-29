@@ -5,10 +5,13 @@ import os
 BASE = os.path.dirname(os.path.abspath(__file__))
 
 pipeline = [
-    (BASE+"/1. DIVIDIR", "DIVIDIR.py"),
-    (BASE+"/2. ENSAMBLADO", "ENSAMBLADO.py"),
-    (BASE+"/4. SÍNTESIS", "SÍNTESIS.py"),
+    (BASE+"/Scripts", "DIVIDIR.py"),
+    (BASE+"/Scripts", "ENSAMBLADO.py"),
+    (BASE+"/Scripts", "COMPARAR.py"),
+    (BASE+"/Scripts", "SÍNTESIS.py"),
 ]
+
+partes = int(input("Partes (bases por fragmento)? "))
 
 for carpeta, script in pipeline:
     ruta_carpeta = os.path.join(BASE, carpeta)
@@ -16,8 +19,16 @@ for carpeta, script in pipeline:
 
     print(f"\n-- Ejecutando {script} en {carpeta}")
 
+    args = [sys.executable, ruta_script]
+    if script in ["ENSAMBLADO.py"]:
+        args.append(str(partes))
+        args.append("n")
+    if script in ["DIVIDIR.py"]:
+        args.append(str(partes))
+        args.append("y")
+
     result = subprocess.run(
-        [sys.executable, ruta_script],
+        args,
         cwd=ruta_carpeta
     )
 
