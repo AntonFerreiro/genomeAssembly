@@ -1,2 +1,0 @@
-Coincidencia circular más larga: TGACTGTTAC
-100.00% | 10 de 10
