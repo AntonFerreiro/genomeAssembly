@@ -336,10 +336,10 @@ print("-- Ensamblaje final: "+str("".join(ensamblaje)))
 try:
     with open(resultado_nombre, 'w', encoding='utf-8') as archivo_salida:
         archivo_salida.writelines(str("".join(ensamblaje)))
-    print(f"\n✅ Análisis completado. Resultados guardados en: {resultado_nombre}")
+    print(f"\n[OK] Análisis completado. Resultados guardados en: {resultado_nombre}")
 
 except Exception as e:
-    print(f"\n❌ Ocurrió un error al escribir el archivo de resultados: {e}")
+    print(f"\n[ERROR] Ocurrió un error al escribir el archivo de resultados: {e}")
 
 # Preparar y guardar grafo
 nx.draw(G, with_labels=True, node_color='lightblue', edge_color='red', arrows=True)

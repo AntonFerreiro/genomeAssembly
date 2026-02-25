@@ -79,7 +79,7 @@ try:
             f"Coincidencia circular más larga: {coincidencia}\n"
             f"{(num*100)/longitud:.2f}% | {num} de {longitud}"
         )
-    print(f"\n✅ Análisis completado. Resultados guardados en: {resultado_nombre}")
+    print(f"\n[OK] Análisis completado. Resultados guardados en: {resultado_nombre}")
 
 except Exception as e:
-    print(f"\n❌ Ocurrió un error al escribir el archivo de resultados: {e}")
+    print(f"\n[ERROR] Ocurrió un error al escribir el archivo de resultados: {e}")
