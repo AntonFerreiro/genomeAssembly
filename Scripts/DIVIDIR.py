@@ -1,40 +1,53 @@
-#####################################################################
-# 1. DIVIDIR --> DE LA MUESTRA ORIGINAL A FRAGMENTOS (+ DESORDENAR) #
-#####################################################################
-
-# Librerías
 import random
-import sys
 from pathlib import Path
+import argparse
 
-# Si no recibe argumentos al ejecutar, que pida por teclado la longitud de los fragmentos
-if len(sys.argv) > 1:
-    partes = int(sys.argv[1])
+parser = argparse.ArgumentParser(
+    description="Divide una secuencia en fragmentos para el ensamblaje"
+)
+
+# Flags obligatorios si quieres pasar por CLI
+parser.add_argument(
+    "-p", "--partes",
+    type=int,
+    help="Número de bases por fragmento"
+)
+
+parser.add_argument(
+    "-s", "--shuffle",
+    action="store_true",
+    help="Desordenar los fragmentos"
+)
+
+args = parser.parse_args()
+
+# -----------------------
+# Resolver valores
+# -----------------------
+
+# PARTES
+if args.partes is not None:
+    partes = args.partes
 else:
     partes = int(input("Partes (bases por fragmento)? "))
 
-# Si no recibe argumentos al ejecutar, que pida por teclado si desordenar los fragmentos
-desordenar = False
-if len(sys.argv) > 2:
-    recibido = sys.argv[2]
+# DESORDENAR
+if args.shuffle:
+    desordenar = True
 else:
-    recibido = input("Desordenar? y/n: ")
+    recibido = input("Desordenar fragmentos? [y/n]: ").strip().lower()
+    desordenar = recibido in ["y", "yes"]
 
-if recibido == "y" or recibido == "yes":
-        desordenar = True
-
-# Directorio de archivos
+# -----------------------
+# Directorios y archivos
+# -----------------------
 project_root = Path(__file__).resolve().parents[1]
-base_dir = Path(__file__).resolve().parent
-archivo_nombre = project_root/'Muestras'/'muestra.txt'
+archivo_nombre = project_root / 'Muestras' / 'muestra.txt'
+resultado_nombre = project_root / "Resultados" / "dividido.txt"
 
-resultado_nombre = (
-    project_root
-    / "Resultados"
-    / f"dividido.txt"
-)
-
-# Intentar leer archivo de la muestra original
+# -----------------------
+# Leer archivo
+# -----------------------
 try:
     with open(archivo_nombre, 'r', encoding='utf-8') as archivo:
         contenido = archivo.read()
@@ -45,30 +58,28 @@ except Exception as e:
     print(f"Ocurrió un error al leer el archivo: {e}")
     exit()
 
-# Eliminar espacios y saltos de línea
 contenido = contenido.replace(" ", "").replace("\n", "").replace("\r", "")
 longitud = len(contenido)
 
-# Fragmentar la muestra original en longitud de partes k
+# -----------------------
+# Fragmentar
+# -----------------------
 fragmentos = [contenido[i:i+partes] for i in range(0, longitud, partes - (partes - 1))]
+fragmentos_final = [f for f in fragmentos if len(f) == partes]
 
-fragmentos_final = []
-
-# Guardar fragmentos en lista final
-for f in fragmentos:
-    if len(f) == partes:
-        fragmentos_final.append(f)
-
-# Desordenar fragmentos si es el caso
+# -----------------------
+# Desordenar si toca
+# -----------------------
 if desordenar:
     random.shuffle(fragmentos_final)
 
+# -----------------------
 # Guardar resultados
+# -----------------------
 try:
     with open(resultado_nombre, 'w', encoding='utf-8') as f:
         for frag in fragmentos_final:
             f.write(frag + "\n")
     print(f"\n[OK] Análisis completado. Resultados guardados en: {resultado_nombre}")
-
 except Exception as e:
     print(f"\n[ERROR] Ocurrió un error al escribir el archivo de resultados: {e}")

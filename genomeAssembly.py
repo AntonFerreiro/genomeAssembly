@@ -41,17 +41,35 @@ def setup_logging(verbose_console=False, log_file="log.txt"):
 BASE = os.path.dirname(os.path.abspath(__file__))
 
 # -----------------------
-# CLI: solo verbose de consola
+# CLI: Argumentos
 # -----------------------
-parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--verbose", action="store_true",
-                    help="Mostrar salida detallada en consola")
+parser = argparse.ArgumentParser(
+    description="[GENOME RECONSTRUCTION VIA GRAPH ASSEMBLY PIPELINE]",
+    epilog="Parameters such as [PARTS] will be asked through input if not specified."
+)
+
+parser.add_argument(
+    "-v", "--verbose",
+    action="store_true",
+    help="Shows detailed output (log file is always verbose)"
+)
+parser.add_argument(
+    "-s", "--shuffle",
+    action="store_true",
+    help="[DIVIDIR.py] Shuffle fragments. Set to True if present, asked through input if missing."
+)
+parser.add_argument(
+    "-p", "--partes",
+    type=int,
+    help="[DIVIDIR.py] Number of bases per fragment. This is the 'k' length (if not specified, must be given through input)"
+)
+
 args = parser.parse_args()
 
 setup_logging(verbose_console=args.verbose, log_file=os.path.join(BASE, "logs/log.txt"))
 
 # -----------------------
-# Subprogramas
+# Scripts
 # -----------------------
 pipeline = [
     (BASE+"/Scripts", "DIVIDIR.py"),
@@ -63,7 +81,8 @@ pipeline = [
 # -----------------------
 # Entrada de usuario
 # -----------------------
-partes = int(input("Partes (bases por fragmento)? "))
+# Usar valor de CLI si existe, fallback a input si no
+partes = args.partes if args.partes is not None else int(input("Partes (bases por fragmento)? "))
 
 # -----------------------
 # Ejecución del pipeline
@@ -72,7 +91,7 @@ for carpeta, script in pipeline:
     ruta_carpeta = os.path.join(BASE, carpeta)
     ruta_script = os.path.join(ruta_carpeta, script)
 
-    logging.info(f"▶ Ejecutando {script}")
+    logging.info(f">> Ejecutando {script}")
 
     args_sub = [sys.executable, ruta_script]
 
@@ -98,7 +117,7 @@ for carpeta, script in pipeline:
         logging.error(result.stderr)
 
     if result.returncode != 0:
-        logging.error(f"[ERROR] Error detectado en {script}. Pipeline detenido.")
+        logging.error(f"[ERROR] Error detectado en {script}. Pipeline detenido. Los logs se encuentran en logs/log.txt")
         sys.exit(result.returncode)
 
-logging.info("[OK] Pipeline completado correctamente")
+logging.info("[OK] Pipeline completado correctamente. Los logs se encuentran en logs/log.txt")
