@@ -56,7 +56,7 @@ python -m pip install -r requirements.txt
 
 
 ###
-**Through the [releases](https://github.com/AntonFerreiro/genomeAssembly/releases) tab (recommended)**
+**Through the [releases](https://github.com/AntonFerreiro/genomeAssembly/releases) tab (recommended):**
 
 1. Download the **latest stable release** and **extract it**.
 2. Navigate to the extracted directory.
