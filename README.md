@@ -2,7 +2,7 @@
   <img src="assets/logoFull.svg" alt="Project logo" width="100%" style="max-width:700px;">
 </p>
 <p align="center">
-	<em><code>❯ REPLACE-ME</code></em>
+	<em><code>❯ "RECONSTRUCCIÓN DE GENOMAS MEDIANTE ENSAMBLADO DE GRAFOS" STEMBach project.</code></em>
 </p>
 
 <p align="center">
