@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" align="center" width="30%">
+  <img src="assets/logoFull.svg" alt="Project logo" width="100%" style="max-width:700px;">
 </p>
-<p align="center"><h1 align="center">GENOMEASSEMBLY</h1></p>
 <p align="center">
 	<em><code>❯ REPLACE-ME</code></em>
 </p>
+
 <p align="center">
 	<img src="https://img.shields.io/github/license/AntonFerreiro/genomeAssembly?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
 	<img src="https://img.shields.io/github/last-commit/AntonFerreiro/genomeAssembly?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
@@ -20,6 +20,9 @@
 
 
 ##  Getting Started
+<p align="center">
+  <img src="assets/logoSmall.svg" alt="Project logo" width="10%" style="max-width:150px;">
+</p>
 
 ###  Prerequisites
 
