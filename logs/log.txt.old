@@ -1,0 +1,31 @@
+2026-03-14 13:40:26,028 | INFO | >> Executing DIVIDIR.py
+2026-03-14 13:40:26,101 | DEBUG | 
+[OK] Análisis completado. Resultados guardados en: C:\Users\Daniel\Downloads\genomeAssembly-11.3\Resultados\dividido.txt
+
+2026-03-14 13:40:26,101 | INFO | >> Executing ENSAMBLADO.py
+2026-03-14 13:40:27,677 | DEBUG | >> Lectura inicial: ['TTG', 'CGC', 'TTC', 'ATT', 'ATA', 'TAA', 'AAA', 'CAC', 'CTC', 'GAT', 'TTA', 'CGG', 'CAT', 'AAT', 'GGG', 'TGT', 'GGA', 'GAG', 'ATC', 'TAC', 'CTC', 'GGT', 'CCC', 'AAG', 'ATA', 'AGC', 'TAG', 'GTC', 'TTT', 'TGG', 'AGG', 'AGA', 'AGG', 'CCG', 'GGG', 'ATA', 'TGT', 'GTG', 'TAT', 'TAG', 'GCG', 'CCT', 'TGC', 'GAA', 'CGC', 'GCC', 'GGA', 'GGG', 'CCC', 'CAG', 'CTT', 'GTG', 'GAG', 'CCC', 'TGT', 'GTG', 'CCT', 'TTA', 'ATA', 'GTG', 'CTA', 'TAG', 'TCG', 'TTA', 'CTT', 'ATT', 'CAT', 'GGT', 'GCT', 'GGG', 'GGT', 'ATT', 'AGA', 'GCC', 'GGG', 'TGG', 'AAT', 'AAG', 'TCA', 'TAA', 'AAT', 'GCG', 'ATT', 'TCT', 'TCT', 'GGA', 'GCG', 'CAC', 'ACA', 'GCC', 'TTC', 'AAA', 'AAA', 'AGG', 'CCG', 'ACC', 'GTA', 'GGT', 'AGT', 'CGG', 'TAC', 'TAA', 'CCA', 'TTT', 'GAT', 'CGA', 'CCG', 'GAT', 'GCC', 'GAA', 'AGC', 'ATA', 'AAT', 'GCC', 'ATT', 'CGC', 'GGC', 'TGC', 'TAA', 'GTA', 'TCC', 'TTT', 'AAA', 'AGG', 'TTG', 'GGG', 'TAT', 'TAG', 'CCT', 'ACA', 'CGT', 'TCA', 'CTA', 'ACG', 'TCT', 'GTG', 'CGC', 'CTC']
+{'TT': ['TG', 'TC', 'TA', 'TT', 'TA', 'TA', 'TC', 'TT', 'TT', 'TG'], 'CG': ['GC', 'GG', 'GC', 'GG', 'GA', 'GC', 'GT', 'GC'], 'AT': ['TT', 'TA', 'TC', 'TA', 'TA', 'TA', 'TT', 'TT', 'TT', 'TA', 'TT'], 'TA': ['AA', 'AC', 'AG', 'AT', 'AG', 'AG', 'AA', 'AC', 'AA', 'AA', 'AT', 'AG'], 'AA': ['AA', 'AT', 'AG', 'AT', 'AG', 'AT', 'AA', 'AA', 'AT', 'AA'], 'CA': ['AC', 'AT', 'AG', 'AT', 'AC'], 'CT': ['TC', 'TC', 'TT', 'TA', 'TT', 'TA', 'TC'], 'GA': ['AT', 'AG', 'AA', 'AG', 'AT', 'AT', 'AA'], 'GG': ['GG', 'GA', 'GT', 'GG', 'GA', 'GG', 'GT', 'GG', 'GT', 'GG', 'GA', 'GT', 'GC', 'GG'], 'TG': ['GT', 'GG', 'GT', 'GC', 'GT', 'GG', 'GC'], 'CC': ['CC', 'CG', 'CT', 'CC', 'CC', 'CT', 'CG', 'CA', 'CG', 'CT'], 'AG': ['GC', 'GG', 'GA', 'GG', 'GA', 'GG', 'GT', 'GC', 'GG'], 'GT': ['TC', 'TG', 'TG', 'TG', 'TG', 'TA', 'TA', 'TG'], 'GC': ['CG', 'CC', 'CT', 'CC', 'CG', 'CG', 'CC', 'CC', 'CC'], 'TC': ['CG', 'CA', 'CT', 'CT', 'CC', 'CA', 'CT'], 'AC': ['CA', 'CC', 'CA', 'CG']}
+
+--- Análisis de Balance ---
+>> Primero: GA
+>> Último: GT
+[['GA', 'AT', 'TT', 'TG', 'GT', 'TC', 'CG', 'GC', 'CG', 'GG', 'GG'], ['TT', 'TC', 'CA', 'AC', 'CA', 'AT', 'TA', 'AA', 'AA', 'AT', 'TC', 'CT', 'TC', 'CT', 'TC', 'CC', 'CC', 'CG', 'GC', 'CC', 'CT'], ['TT', 'TA', 'AC', 'CC', 'CC', 'CC', 'CT', 'TA', 'AG', 'GC', 'CT'], ['TT'], ['TT', 'TA', 'AT', 'TA', 'AG', 'GG', 'GT', 'TG', 'GG', 'GG', 'GA', 'AG', 'GA', 'AA', 'AG', 'GG', 'GG', 'GT', 'TG', 'GT', 'TG', 'GC', 'CC', 'CG', 'GG', 'GG', 'GT', 'TG', 'GT', 'TA', 'AG', 'GA', 'AG', 'GG', 'GG', 'GA', 'AT', 'TA', 'AA', 'AT', 'TA', 'AC', 'CA', 'AG', 'GT', 'TA', 'AA', 'AG', 'GC', 'CG', 'GA', 'AT'], ['TT', 'TA', 'AA', 'AT'], ['TT', 'TC', 'CA', 'AT'], ['TT'], ['TT'], ['TT', 'TG', 'GG', 'GT', 'TG', 'GC', 'CG', 'GC', 'CC', 'CA', 'AC', 'CG', 'GT', 'GA', 'AA', 'AA', 'AA', 'AT', 'TA', 'AT'], ['CG', 'GC', 'CC'], ['TA', 'AG', 'GG', 'GC', 'CC', 'CT'], ['AA'], ['CT', 'TC'], ['GG']]
+-- Nodos ordenados: []
+-- Ensamblaje final: 
+
+[OK] Análisis completado. Resultados guardados en: C:\Users\Daniel\Downloads\genomeAssembly-11.3\Resultados\ensamblado.txt
+
+2026-03-14 13:40:27,678 | INFO | >> Executing COMPARAR.py
+2026-03-14 13:40:27,736 | DEBUG | Coincidencia circular más larga: 
+0.00% | 0 de 140
+
+[OK] Análisis completado. Resultados guardados en: C:\Users\Daniel\Downloads\genomeAssembly-11.3\Resultados\comparar.txt
+
+2026-03-14 13:40:27,736 | INFO | >> Executing SÍNTESIS.py
+2026-03-14 13:40:27,793 | DEBUG | >> Lectura inicial: []
+>> Lectura ADN a ARN: []
+>> Resultado: 
+
+[OK] Análisis completado. Resultados guardados en: C:\Users\Daniel\Downloads\genomeAssembly-11.3\Resultados\síntesis.txt
+
+2026-03-14 13:40:27,793 | INFO | [OK] Pipeline completed succesfully. Logs are located in logs/log.txt // Results are located in Resultados/

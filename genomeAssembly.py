@@ -51,19 +51,20 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "-v", "--verbose",
     action="store_true",
-    help="Shows detailed output (log file is always verbose)"
-)
-parser.add_argument(
-    "-s", "--shuffle",
-    action="store_true",
-    help="[DIVIDIR.py] Shuffle fragments. Set to True if present, asked through input if missing."
-)
-parser.add_argument(
-    "-p", "--partes",
-    type=int,
-    help="[DIVIDIR.py] Number of bases per fragment. This is the 'k' length (if not specified, must be given through input)"
+    help="shows detailed output (log file is always verbose)."
 )
 
+parser.add_argument(
+    "-p", "--parts",
+    type=int,
+    help="number of bases per fragment. This is the 'k' length (if not specified, must be given through input)"
+)
+
+parser.add_argument(
+    "-n", "--noshuffle",
+    action="store_true",
+    help="prevents [DIVIDIR.py] from shuffling the sample. Intended only for debugging purposes."
+)
 args = parser.parse_args()
 
 setup_logging(verbose_console=args.verbose, log_file=os.path.join(BASE, "logs/log.txt"))
@@ -82,7 +83,7 @@ pipeline = [
 # Entrada de usuario
 # -----------------------
 # Usar valor de CLI si existe, fallback a input si no
-partes = args.partes if args.partes is not None else int(input("Partes (bases por fragmento)? "))
+partes = args.parts if args.parts is not None else int(input("Parts (bases per fragment)? "))
 
 # -----------------------
 # Ejecución del pipeline
@@ -91,7 +92,7 @@ for carpeta, script in pipeline:
     ruta_carpeta = os.path.join(BASE, carpeta)
     ruta_script = os.path.join(ruta_carpeta, script)
 
-    logging.info(f">> Ejecutando {script}")
+    logging.info(f">> Executing {script}")
 
     args_sub = [sys.executable, ruta_script]
 
@@ -100,8 +101,9 @@ for carpeta, script in pipeline:
         args_sub.append("n")
 
     if script == "DIVIDIR.py":
-        args_sub.append(str(partes))
-        args_sub.append("y")
+        args_sub.append(str(f"-p {partes}"))
+        if args.noshuffle is None:
+            args_sub.append("-s")
 
     result = subprocess.run(
         args_sub,
@@ -117,7 +119,7 @@ for carpeta, script in pipeline:
         logging.error(result.stderr)
 
     if result.returncode != 0:
-        logging.error(f"[ERROR] Error detectado en {script}. Pipeline detenido. Los logs se encuentran en logs/log.txt")
+        logging.error(f"[ERROR] Error detected in {script}. Pipeline interrupted. Logs are located in logs/log.txt")
         sys.exit(result.returncode)
 
-logging.info("[OK] Pipeline completado correctamente. Los logs se encuentran en logs/log.txt")
+logging.info("[OK] Pipeline completed succesfully. Logs are located in logs/log.txt // Results are located in Resultados/")

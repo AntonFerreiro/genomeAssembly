@@ -14,7 +14,7 @@
 <p align="center"><!-- default option, no dependency badges. -->
 </p>
 <p align="center">
-	<!-- default option, no dependency badges. -->
+<!-- default option, no dependency badges. -->
 </p>
 <br>
 
@@ -34,7 +34,7 @@ python --version
 ```
 It should give an output such as:
 ```sh
-> Python 3.13.12
+Python 3.13.12
 ```
 - **Package Manager:** Used pip for dependencies installation. Other alternatives may also work.
 
@@ -79,32 +79,45 @@ Once downloaded and with the dependencies satisfied, place your genome sample on
 Execute `genomeAssembly.py` on a terminal.
 
 ```sh
-❯ python genomeAssembly.py
+python genomeAssembly.py
 ```
 
  It will execute every file in `Scripts/` to read the sample.
  
- `DIVIDIR.py` Divides the sample in **'k' bases per fragment**. Then asks to **shuffle the fragments**.
+ `DIVIDIR.py`: Divides the sample (`Muestras/muestra.txt`) in **'k' bases per fragment**. Then **shuffles the fragments** unless `-n / --noshuffle` argument is provided.
 
- `ENSAMBLADO.py` Tries to reconstruct the original sample through the divided one using **De Bruijin graphs** via an **Eulerian Path**
+ `ENSAMBLADO.py`: Tries to reconstruct the original sample through the divided one using **De Bruijn graphs** via an **Eulerian path**
 
-`COMPARAR.py` Compares both **original and reconstructed samples** to give an accurracy ratio.
+`COMPARAR.py`: Compares both **original and reconstructed samples** in order to give an accurracy ratio.
 
-`SÍNTESIS.py` Is an **extra script**. It translates each **ADN** fragment to **ARN** to then translate them again to **proteins**.
+`SÍNTESIS.py`: Tis is an **extra script**. It translates each **ADN** fragment to **ARN** to then translate them to **proteins**.
 
 ```sh
-usage: genomeAssembly.py [-h] [-v] [-s] [-p PARTES]
+usage: genomeAssembly.py [-h] [-v] [-p PARTS] [-n]
 
 [GENOME RECONSTRUCTION VIA GRAPH ASSEMBLY PIPELINE]
 
 options:
-  -h, --help           show this help message and exit
-  -v, --verbose        Shows detailed output (log file is always verbose)
-  -s, --shuffle        [DIVIDIR.py] Shuffle fragments
-  -p, --partes PARTES  [DIVIDIR.py] Number of bases per fragment. This is the 'k' length (if not specified, must be given through input)
+  -h, --help         show this help message and exit
+  -v, --verbose      shows detailed output (log file is always verbose).
+  -p, --parts PARTS  number of bases per fragment. This is the 'k' length (if not specified, must be given through input)
+  -n, --noshuffle    prevents [DIVIDIR.py] from shuffling the sample. Intended only for debugging purposes.
 
 Parameters such as [PARTS] will be asked through input if not specified.
 ```
+
+A correct execution should give an output like this:
+
+```sh
+<PATH\TO\genomeAssembly-XX.x\> PATH\TO\genomeAssembly-XX.x\genomeAssembly.py -p 10 -s
+2026-03-14 13:33:49,462 | INFO | >> Executing DIVIDIR.py
+2026-03-14 13:33:49,532 | INFO | >> Executing ENSAMBLADO.py
+2026-03-14 13:33:51,241 | INFO | >> Executing COMPARAR.py
+2026-03-14 13:33:51,312 | INFO | >> Executing SÍNTESIS.py
+2026-03-14 13:33:51,369 | INFO | [OK] Pipeline completed succesfully. Logs are located in logs/log.txt // Results are located in Resultados/
+```
+Using `-v / --verbose` will give a detailed output as seen in logs.
+
 ---
 
 ##  License

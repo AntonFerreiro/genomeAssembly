@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(
 # Flags obligatorios si quieres pasar por CLI
 parser.add_argument(
     "-p", "--partes",
-    type=int,
+type=int,
     help="Número de bases por fragmento"
 )
 
@@ -32,12 +32,12 @@ else:
     partes = int(input("Partes (bases por fragmento)? "))
 
 # DESORDENAR
-if args.shuffle:
-    desordenar = True
-else:
-    recibido = input("Desordenar fragmentos? [y/n]: ").strip().lower()
-    desordenar = recibido in ["y", "yes"]
-
+#if args.shuffle:
+#    desordenar = True
+#else:
+#    recibido = input("Desordenar fragmentos? [y/n]: ").strip().lower()
+#    desordenar = recibido in ["y", "yes"]
+desordenar = True
 # -----------------------
 # Directorios y archivos
 # -----------------------
