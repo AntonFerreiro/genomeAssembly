@@ -1,5 +1,5 @@
 ###################################################
-# PROGRAMA PRINCIPAL QUE EJECUTA LOS SUBPROGRAMAS #
+# PROGRAMA PRINCIPAL QUE EJECUTA LOS SCRIPTS #
 ###################################################
 
 import subprocess
