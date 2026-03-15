@@ -122,7 +122,7 @@ Using `-v / --verbose` will give a detailed output as seen in logs.
 
 ##  License
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is protected under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) License. For more details, refer to the [COPYING](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING) and [COPYING.LESSER](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING.LESSER) files.
 
 ---
 
