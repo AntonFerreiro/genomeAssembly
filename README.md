@@ -90,7 +90,7 @@ python genomeAssembly.py
 
 `COMPARAR.py`: Compares both **original and reconstructed samples** in order to give an accurracy ratio.
 
-`SÍNTESIS.py`: Tis is an **extra script**. It translates each **ADN** fragment to **ARN** to then translate them to **proteins**.
+`SÍNTESIS.py`: This is an **extra script**. It translates each **ADN** fragment to **ARN** to then translate them to **proteins**.
 
 ```sh
 usage: genomeAssembly.py [-h] [-v] [-p PARTS] [-n]
@@ -109,7 +109,7 @@ Parameters such as [PARTS] will be asked through input if not specified.
 A correct execution should give an output like this:
 
 ```sh
-<PATH\TO\genomeAssembly-XX.x\> PATH\TO\genomeAssembly-XX.x\genomeAssembly.py -p 10 -s
+<PATH\TO\genomeAssembly-XX.x\> PATH\TO\genomeAssembly-XX.x\genomeAssembly.py -p 10
 2026-03-14 13:33:49,462 | INFO | >> Executing DIVIDIR.py
 2026-03-14 13:33:49,532 | INFO | >> Executing ENSAMBLADO.py
 2026-03-14 13:33:51,241 | INFO | >> Executing COMPARAR.py
