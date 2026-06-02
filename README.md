@@ -2,7 +2,7 @@
   <img src="assets/logoFull.svg" alt="Project logo" width="100%" style="max-width:700px;">
 </p>
 <p align="center">
-	<em><code>❯ "RECONSTRUCCIÓN DE GENOMAS MEDIANTE ENSAMBLADO DE GRAFOS" STEMBach project.</code></em>
+	<em><code>❯ "RECONSTRUCCIÓN DE GENOMAS MEDIANTE ENSAMBLAJE DE GRAFOS" STEMBach project.</code></em>
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 
 Before getting started with genomeAssembly, ensure your runtime environment meets the following requirements:
 
-- **Programming Language:** Python 3.13 was the one used during developement. Other versions supporting the dependencies may also work (As far as tested maximum version is 3.13). You can check your current python version with:
+- **Programming Language:** Python 3.13 was the one used during development. Other versions supporting the dependencies may also work (As far as tested maximum version is 3.13). You can check your current python version with:
 ```sh
 python --version
 ```
@@ -43,7 +43,7 @@ It is highly recommended to use a virtual environment to avoid any package confl
 
 You can install genomeAssembly using one of the following methods:
 
-**Build from source:**
+**Build from source**
 
 1. Clone the genomeAssembly repository
 2. Navigate to the project directory
@@ -58,7 +58,7 @@ python -m pip install -r requirements.txt
 
 
 ###
-**Through the [releases](https://github.com/AntonFerreiro/genomeAssembly/releases) tab (recommended):**
+**Through the [releases](https://github.com/AntonFerreiro/genomeAssembly/releases) tab (recommended)**
 
 1. Download the **latest stable release** and **extract it**.
 2. Navigate to the extracted directory.
@@ -87,7 +87,7 @@ python genomeAssembly.py
 
  `ENSAMBLADO.py`: Tries to reconstruct the original sample through the divided one using **De Bruijn graphs** via an **Eulerian path**
 
-`COMPARAR.py`: Compares both **original and reconstructed samples** in order to give an accurracy ratio.
+`COMPARAR.py`: Compares both **original and reconstructed samples** in order to give an accuracy ratio.
 
 `SÍNTESIS.py`: This is an **extra script**. It translates each **ADN** fragment to **ARN** to then translate them to **proteins**.
 
@@ -121,7 +121,7 @@ Using `-v / --verbose` will give a detailed output as seen in logs.
 
 ##  License
 
-This project is protected under the [LGPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) License. For more details, refer to the [COPYING](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING) and [COPYING.LESSER](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING.LESSER) files.
+This project is protected under the [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.en.html) License. For more details, refer to the [COPYING](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING) and [COPYING.LESSER](https://github.com/AntonFerreiro/genomeAssembly/blob/main/COPYING.LESSER) files.
 
 ---
 
